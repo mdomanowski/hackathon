@@ -1,12 +1,12 @@
 package pl.hackathon.knowx.dtos;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 @Setter
 public class UserDto {
@@ -14,10 +14,4 @@ public class UserDto {
     private String nickname;
     private Set<WorkspaceDto> ownWorkspacesDto;
     private Set<WorkspaceDto> observedWorkspacesDto;
-
-    public UserDto(String nickname, Set<WorkspaceDto> ownWorkspacesDto, Set<WorkspaceDto> observedWorkspacesDto) {
-        this.nickname = nickname;
-        this.ownWorkspacesDto = ownWorkspacesDto;
-        this.observedWorkspacesDto = observedWorkspacesDto;
-    }
 }
