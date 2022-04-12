@@ -24,7 +24,6 @@ public class Workspace {
     private Set<PropertiesList> properties;
     @OneToMany
     private List<Flashcards> flashcardsList;
-    @OneToOne
     private User workspaceOwner;
     @OneToMany
     private List<User> observers;
