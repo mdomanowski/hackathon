@@ -5,23 +5,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "properties")
 @NoArgsConstructor
-public class PropertiesList {
-
+@Table(name = "flashcard_properties")
+public class PropertyNameValue {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private Set<String> properties;
+    private String value;
 
-    public PropertiesList(String name, Set<String> properties) {
+    public PropertyNameValue(String name, String value) {
         this.name = name;
-        this.properties = properties;
+        this.value = value;
     }
 }
