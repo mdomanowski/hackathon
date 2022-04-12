@@ -1,22 +1,18 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.jdbc.Work;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Getter
 @Setter
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Entity
+@Table(name = "users")
+public class User extends BaseEntity{
     private String nickname;
 
     @OneToMany(targetEntity = Workspace.class, mappedBy = "workspaceOwner", fetch = FetchType.LAZY)
@@ -29,10 +25,4 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "workspace_id")
     private Workspace participatedWorkspace;
-
-    public User(String nickname, Set<Workspace> ownWorkspaces, Workspace participatedWorkspace) {
-        this.nickname = nickname;
-        this.ownWorkspaces = ownWorkspaces;
-        this.participatedWorkspace = participatedWorkspace;
-    }
 }

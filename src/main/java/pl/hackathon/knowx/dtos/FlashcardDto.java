@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class FlashcardDto {
-    private long id;
+    private Long id;
     private String title;
     private String description;
     private String link;

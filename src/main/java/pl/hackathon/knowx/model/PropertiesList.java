@@ -1,32 +1,22 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
+@Entity
 @Table(name = "properties")
-@NoArgsConstructor
-public class PropertiesList {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private long id;
+public class PropertiesList extends BaseEntity{
     private String name;
 
     @OneToMany(targetEntity = PropertyValue.class, mappedBy = "propertiesList", fetch = FetchType.EAGER)
     private Set<PropertyValue> propertyValues;
-
-    public PropertiesList(String name, Set<PropertyValue> propertyValues) {
-        this.name = name;
-        this.propertyValues = propertyValues;
-    }
 
     @ManyToOne
     @JoinColumn(name = "workspace_id")

@@ -1,22 +1,18 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity
 @Table(name = "flashcards")
-public class Flashcard {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Flashcard extends BaseEntity{
     private String title;
     private String description;
     private String link;
@@ -35,20 +31,4 @@ public class Flashcard {
     @ManyToOne
     @JoinColumn(name = "workspace_id")
     private Workspace workspace;
-
-    public Flashcard(String title,
-                     String description,
-                     String link,
-                     User author,
-                     Set<PropertyNameValue> flashcardProperties,
-                     //List<Flashcard> backlinks,
-                     Set<Tag> tags) {
-        this.title = title;
-        this.description = description;
-        this.link = link;
-        this.author = author;
-        this.flashcardProperties = flashcardProperties;
-        //this.backlinks = backlinks;
-        this.tags = tags;
-    }
 }

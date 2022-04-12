@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class PropertiesListDto {
-    private long id;
+    private Long id;
     private String name;
     private Set<String> propertyValues;
     private Workspace workspace;

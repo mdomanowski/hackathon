@@ -14,8 +14,8 @@ import java.util.Set;
 @Builder
 @Getter
 @Setter
-class WorkspaceDto {
-    private long id;
+public class WorkspaceDto {
+    private Long id;
     private String workspaceName;
     private String description;
     private Set<PropertiesList> properties;
