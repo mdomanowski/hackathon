@@ -10,8 +10,12 @@ import lombok.Setter;
 public class UserDto {
     private Long id;
     private String nickname;
+    private Set<WorkspaceDto> ownWorkspacesDto;
+    private Set<WorkspaceDto> observedWorkspacesDto;
 
-    public UserDto(String nickname) {
+    public UserDto(String nickname, Set<WorkspaceDto> ownWorkspacesDto, Set<WorkspaceDto> observedWorkspacesDto) {
         this.nickname = nickname;
+        this.ownWorkspacesDto = ownWorkspacesDto;
+        this.observedWorkspacesDto = observedWorkspacesDto;
     }
 }

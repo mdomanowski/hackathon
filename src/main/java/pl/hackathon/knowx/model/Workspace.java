@@ -22,6 +22,7 @@ public class Workspace {
     private String description;
     private Set<PropertiesList> properties;
     private List<Flashcards> flashcardsList;
+
     private User workspaceOwner;
     private List<User> observers;
 
