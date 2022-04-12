@@ -18,8 +18,8 @@ public class WorkspaceDto {
     private Long id;
     private String workspaceName;
     private String description;
-    private Set<PropertiesList> properties;
-    private List<Flashcard> flashcardsList = new ArrayList<>();
+    private Set<PropertiesListDto> propertiesDto;
+    private List<FlashcardDto> flashcardsListDto = new ArrayList<>();
     private User workspaceOwner;
-    private List<User> participants = new ArrayList<>();
+    private List<UserDto> participantsDto = new ArrayList<>();
 }

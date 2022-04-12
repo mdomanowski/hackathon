@@ -11,5 +11,5 @@ import pl.hackathon.knowx.model.PropertiesList;
 public class PropertyValueDto {
     private Long id;
     private String name;
-    private PropertiesList propertiesList;
+    private PropertiesListDto propertiesListDto;
 }
