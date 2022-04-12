@@ -15,10 +15,11 @@ import java.util.Set;
 public class PropertiesList extends BaseEntity{
     private String name;
 
-    @OneToMany(targetEntity = PropertyValue.class, mappedBy = "propertiesList", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = PropertyValue.class, mappedBy = "propertiesList", fetch = FetchType.EAGER,
+    cascade = CascadeType.PERSIST)
     private Set<PropertyValue> propertyValues;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "workspace_id")
     private Workspace workspace;
 }

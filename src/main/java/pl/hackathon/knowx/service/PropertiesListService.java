@@ -9,28 +9,49 @@ import pl.hackathon.knowx.repositories.PropertiesListRepository;
 import pl.hackathon.knowx.repositories.PropertyValueRepository;
 import pl.hackathon.knowx.repositories.WorkspaceRepository;
 
+import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class PropertiesListService {
     PropertiesListRepository propertiesListRepository;
-    PropertyValueRepository propertyValueRepository;
+    PropertyValueService propertyValueService;
     WorkspaceRepository workspaceRepository;
+
 
     @Autowired
     public PropertiesListService(PropertiesListRepository propertiesListRepository,
-                                 PropertyValueRepository propertyValueRepository,
+                                 PropertyValueService propertyValueService,
                                  WorkspaceRepository workspaceRepository) {
         this.propertiesListRepository = propertiesListRepository;
-        this.propertyValueRepository = propertyValueRepository;
+        this.propertyValueService = propertyValueService;
         this.workspaceRepository = workspaceRepository;
     }
 
-    //tworzenie nowego propertieslist w repozytorium
-    public PropertiesList createPropertiesList(String name, Set<PropertyValue> valuesSet, Workspace workspace) {
-        return propertiesListRepository.save(new PropertiesList(name, valuesSet, workspace));
+    //tworzenie nowego propertiesList w repozytorium
+    public PropertiesList createPropertiesList(String name, Set<String> valuesSet, Workspace workspace) {
+
+        PropertiesList propertiesList = new PropertiesList();
+        propertiesList.setName(name);
+        propertiesList.setWorkspace(workspace);
+
+        Set<PropertyValue> insertSet = new HashSet<>();
+        for (String propertyValue : valuesSet) {
+            PropertyValue p = propertyValueService.createPropertyValue(propertyValue, propertiesList);
+            insertSet.add(p);
+        }
+        propertiesList.setPropertyValues(insertSet);
+
+        return propertiesListRepository.save(propertiesList);
     }
+
     // pobieranie propertiesList z repozytorium
-    public PropertiesList getPropertiesList(Long id)
+    public Optional<PropertiesList> getPropertiesList(Long id) {
+        PropertiesList p = propertiesListRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("No properties list with given id found!")
+        );
+        return Optional.ofNullable(p);
+    }
 
 }

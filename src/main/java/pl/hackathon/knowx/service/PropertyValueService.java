@@ -20,6 +20,7 @@ public class PropertyValueService {
 
     public PropertyValue createPropertyValue(String name, PropertiesList propertiesList) {
         PropertyValue pV = propertyValueRepository.save(new PropertyValue(name, propertiesList));
+        System.out.println(pV + "siema");
         return pV;
     }
 
