@@ -5,8 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
 
 @Entity
 @Getter
@@ -18,24 +20,31 @@ public class Workspace {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String workspaceName;
     private String description;
-    @OneToMany
-    private Set<PropertiesList> properties;
-    @OneToMany
-    private List<Flashcards> flashcardsList;
-    private User workspaceOwner;
-    @OneToMany
-    private List<User> observers;
 
-    public Workspace(String workspaceName, String description,
-                     Set<PropertiesList> properties, List<Flashcards> flashcardsList,
-                     User workspaceOwner, List<User> observers) {
+    @OneToMany(targetEntity = PropertiesList.class, mappedBy = "workspace", fetch = FetchType.EAGER)
+    private Set<PropertiesList> properties;
+
+    @OneToMany(targetEntity = Flashcard.class, mappedBy = "workspace", fetch = FetchType.EAGER)
+    private List<Flashcard> flashcardsList = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User workspaceOwner;
+
+    @OneToMany(targetEntity = User.class, mappedBy = "participatedWorkspace", fetch = FetchType.LAZY)
+    private List<User> participants = new ArrayList<>();
+
+    public Workspace(String workspaceName,
+                     String description,
+                     Set<PropertiesList> properties,
+                     User workspaceOwner) {
         this.workspaceName = workspaceName;
         this.description = description;
         this.properties = properties;
-        this.flashcardsList = flashcardsList;
         this.workspaceOwner = workspaceOwner;
-        this.observers = observers;
     }
 }
+

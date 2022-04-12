@@ -3,6 +3,7 @@ package pl.hackathon.knowx.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.jdbc.Work;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,12 +18,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickname;
-    private Set<Workspace> ownWorkspaces;
-    private Set<Workspace> observedWorkspaces;
 
-    public User(String nickname, Set<Workspace> ownWorkspaces, Set<Workspace> observedWorkspaces) {
+    @OneToMany(targetEntity = Workspace.class, mappedBy = "workspaceOwner", fetch = FetchType.LAZY)
+    private Set<Workspace> ownWorkspaces;
+
+    /**
+     * Jeden user może być tylko w jednym workspace,
+     * TODO WIELE USEROW W WIELU WORKSPACE'ACH
+     */
+    @ManyToOne
+    @JoinColumn(name = "workspace_id")
+    private Workspace participatedWorkspace;
+
+    public User(String nickname, Set<Workspace> ownWorkspaces, Workspace participatedWorkspace) {
         this.nickname = nickname;
         this.ownWorkspaces = ownWorkspaces;
-        this.observedWorkspaces = observedWorkspaces;
+        this.participatedWorkspace = participatedWorkspace;
     }
 }

@@ -22,4 +22,7 @@ public class PropertyNameValue {
         this.name = name;
         this.value = value;
     }
+    @ManyToOne
+    @JoinColumn(name = "flashcard_id")
+    private Flashcard flashcard;
 }

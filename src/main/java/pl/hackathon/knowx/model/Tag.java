@@ -21,4 +21,8 @@ public class Tag {
     public Tag(String name) {
         this.name = name;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "flashcard_id")
+    private Flashcard flashcard;
 }
