@@ -1,6 +1,7 @@
 package pl.hackathon.knowx.model;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "workspaces")
+@Component
 public class Workspace extends BaseEntity{
     private String workspaceName;
     private String description;
