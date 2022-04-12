@@ -7,18 +7,18 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "tags")
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nickname;
+    private String name;
 
-    public User(String nickname) {
-        this.nickname = nickname;
+    public Tag(String name) {
+        this.name = name;
     }
 }

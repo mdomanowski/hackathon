@@ -7,11 +7,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserDto {
+public class TagDto {
     private Long id;
-    private String nickname;
 
-    public UserDto(String nickname) {
-        this.nickname = nickname;
+    private String name;
+
+    public TagDto(String name) {
+        this.name = name;
     }
 }
