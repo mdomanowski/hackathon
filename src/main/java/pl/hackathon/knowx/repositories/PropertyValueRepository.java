@@ -7,3 +7,4 @@ import pl.hackathon.knowx.model.PropertyValue;
 @Repository
 public interface PropertyValueRepository extends JpaRepository<PropertyValue, Long> {
 }
+
