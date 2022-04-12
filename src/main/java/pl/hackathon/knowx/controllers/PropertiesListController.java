@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import pl.hackathon.knowx.service.PropertiesListService;
 
 @RestController
 @RequestMapping(path = "/proplist")
+@Slf4j
 public class PropertiesListController {
     private final PropertiesListService propertiesListService;
     @Autowired
@@ -18,6 +20,7 @@ public class PropertiesListController {
 
     @PostMapping("/create")
     public ResponseEntity<PropertiesList> createPropertiesList(@RequestBody PropertiesListDto p) {
+
         PropertiesList propertiesList = propertiesListService.createPropertiesList(p.getName(),
                 p.getPropertyValues(),
                 p.getWorkspace());

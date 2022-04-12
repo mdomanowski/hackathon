@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class PropertiesList extends BaseEntity{
 
     @OneToMany(targetEntity = PropertyValue.class, mappedBy = "propertiesList", fetch = FetchType.EAGER,
     cascade = CascadeType.PERSIST)
+    @JsonManagedReference
     private Set<PropertyValue> propertyValues;
 
     @ManyToOne(cascade = CascadeType.PERSIST)

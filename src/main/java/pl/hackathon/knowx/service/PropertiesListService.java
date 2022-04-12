@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.hackathon.knowx.model.PropertiesList;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Slf4j
 public class PropertiesListService {
     PropertiesListRepository propertiesListRepository;
     PropertyValueService propertyValueService;
@@ -37,9 +39,9 @@ public class PropertiesListService {
         propertiesList.setWorkspace(workspace);
 
         Set<PropertyValue> insertSet = new HashSet<>();
+
         for (String propertyValue : valuesSet) {
-            PropertyValue p = propertyValueService.createPropertyValue(propertyValue, propertiesList);
-            insertSet.add(p);
+            insertSet.add(new PropertyValue(propertyValue, propertiesList));
         }
         propertiesList.setPropertyValues(insertSet);
 
