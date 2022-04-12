@@ -10,9 +10,10 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "tags")
-public class Tag extends BaseEntity{
+@Table(name = "flashcard_properties")
+public class PropertyNameValue extends BaseEntity{
     private String name;
+    private String value;
 
     @ManyToOne
     @JoinColumn(name = "flashcard_id")

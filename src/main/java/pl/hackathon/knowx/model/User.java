@@ -1,24 +1,28 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Entity
-@Table(name = "users")
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Getter
 @Setter
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+@Entity
+@Table(name = "users")
+public class User extends BaseEntity{
     private String nickname;
 
-    public User(String nickname) {
-        this.nickname = nickname;
-    }
+    @OneToMany(targetEntity = Workspace.class, mappedBy = "workspaceOwner", fetch = FetchType.LAZY)
+    private Set<Workspace> ownWorkspaces;
+
+    /**
+     * Jeden user może być tylko w jednym workspace,
+     * TODO WIELE USEROW W WIELU WORKSPACE'ACH
+     */
+    @ManyToOne
+    @JoinColumn(name = "workspace_id")
+    private Workspace participatedWorkspace;
 }
