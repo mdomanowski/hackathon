@@ -20,9 +20,23 @@ public class Workspace {
     private long id;
     private String workspaceName;
     private String description;
+    @OneToMany
     private Set<PropertiesList> properties;
+    @OneToMany
     private List<Flashcards> flashcardsList;
+    @OneToOne
     private User workspaceOwner;
+    @OneToMany
     private List<User> observers;
 
+    public Workspace(String workspaceName, String description,
+                     Set<PropertiesList> properties, List<Flashcards> flashcardsList,
+                     User workspaceOwner, List<User> observers) {
+        this.workspaceName = workspaceName;
+        this.description = description;
+        this.properties = properties;
+        this.flashcardsList = flashcardsList;
+        this.workspaceOwner = workspaceOwner;
+        this.observers = observers;
+    }
 }
