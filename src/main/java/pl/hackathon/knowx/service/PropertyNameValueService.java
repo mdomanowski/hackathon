@@ -28,7 +28,7 @@ public class PropertyNameValueService {
         return propertyNameValueRepository.findById(id);
     }
 
-    public void deleteTag(Long id) {
+    public void deletePropertyNameValue(Long id) {
         propertyNameValueRepository.deleteById(id);
     }
 }
