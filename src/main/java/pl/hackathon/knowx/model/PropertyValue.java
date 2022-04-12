@@ -1,19 +1,17 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
+@Entity
 @Table(name = "property_value")
-public class PropertyValue {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
+public class PropertyValue extends BaseEntity{
     private String name;
 
     @ManyToOne

@@ -7,7 +7,9 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class TagDto {
+public class PropertyNameValueDto {
     private Long id;
     private String name;
+    private String value;
+    private FlashcardDto flashcardDto;
 }

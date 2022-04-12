@@ -1,27 +1,20 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity
 @Table(name = "flashcard_properties")
-public class PropertyNameValue {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class PropertyNameValue extends BaseEntity{
     private String name;
     private String value;
 
-    public PropertyNameValue(String name, String value) {
-        this.name = name;
-        this.value = value;
-    }
     @ManyToOne
     @JoinColumn(name = "flashcard_id")
     private Flashcard flashcard;

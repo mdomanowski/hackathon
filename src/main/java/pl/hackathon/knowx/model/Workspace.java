@@ -1,26 +1,20 @@
 package pl.hackathon.knowx.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
 @Setter
+@Entity
 @Table(name = "workspaces")
-@NoArgsConstructor
-public class Workspace {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
+public class Workspace extends BaseEntity{
     private String workspaceName;
     private String description;
 
@@ -36,15 +30,5 @@ public class Workspace {
 
     @OneToMany(targetEntity = User.class, mappedBy = "participatedWorkspace", fetch = FetchType.LAZY)
     private List<User> participants = new ArrayList<>();
-
-    public Workspace(String workspaceName,
-                     String description,
-                     Set<PropertiesList> properties,
-                     User workspaceOwner) {
-        this.workspaceName = workspaceName;
-        this.description = description;
-        this.properties = properties;
-        this.workspaceOwner = workspaceOwner;
-    }
 }
 
