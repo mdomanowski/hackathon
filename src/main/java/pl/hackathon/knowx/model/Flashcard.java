@@ -27,7 +27,7 @@ public class Flashcard {
     @OneToMany(targetEntity = PropertyNameValue.class, mappedBy = "flashcard", fetch = FetchType.LAZY)
     private Set<PropertyNameValue> flashcardProperties;
     // TODO
-    private List<Flashcard> backlinks;
+    //private List<Flashcard> backlinks;
 
     @OneToMany(targetEntity = Tag.class, mappedBy = "flashcard", fetch = FetchType.EAGER)
     private Set<Tag> tags;
@@ -41,14 +41,14 @@ public class Flashcard {
                      String link,
                      User author,
                      Set<PropertyNameValue> flashcardProperties,
-                     List<Flashcard> backlinks,
+                     //List<Flashcard> backlinks,
                      Set<Tag> tags) {
         this.title = title;
         this.description = description;
         this.link = link;
         this.author = author;
         this.flashcardProperties = flashcardProperties;
-        this.backlinks = backlinks;
+        //this.backlinks = backlinks;
         this.tags = tags;
     }
 }

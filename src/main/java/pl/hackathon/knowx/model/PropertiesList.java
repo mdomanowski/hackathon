@@ -19,9 +19,11 @@ public class PropertiesList {
 
     private long id;
     private String name;
-    private Set<String> propertyValues;
 
-    public PropertiesList(String name, Set<String> propertyValues) {
+    @OneToMany(targetEntity = PropertyValue.class, mappedBy = "propertiesList", fetch = FetchType.EAGER)
+    private Set<PropertyValue> propertyValues;
+
+    public PropertiesList(String name, Set<PropertyValue> propertyValues) {
         this.name = name;
         this.propertyValues = propertyValues;
     }
