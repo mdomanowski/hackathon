@@ -15,5 +15,5 @@ public class PropertiesListDto {
     private Long id;
     private String name;
     private Set<PropertyValueDto> propertyValues;
-    private Workspace workspace;
+    private WorkspaceDto workspace;
 }
