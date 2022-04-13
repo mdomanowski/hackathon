@@ -20,17 +20,17 @@ public class Workspace extends BaseEntity{
     private String workspaceName;
     private String description;
 
-    @OneToMany(targetEntity = PropertiesList.class, mappedBy = "workspace", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = PropertiesList.class, mappedBy = "workspace", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<PropertiesList> properties;
 
-    @OneToMany(targetEntity = Flashcard.class, mappedBy = "workspace", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Flashcard.class, mappedBy = "workspace", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Flashcard> flashcardsList = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User workspaceOwner;
 
-    @OneToMany(targetEntity = User.class, mappedBy = "participatedWorkspace", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = User.class, mappedBy = "participatedWorkspace", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<User> participants = new ArrayList<>();
 }
 

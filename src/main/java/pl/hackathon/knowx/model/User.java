@@ -25,4 +25,8 @@ public class User extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "workspace_id")
     private Workspace participatedWorkspace;
+
+    public User(String nickname) {
+        this.nickname = nickname;
+    }
 }
