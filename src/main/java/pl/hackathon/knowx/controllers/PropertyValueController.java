@@ -3,6 +3,7 @@ package pl.hackathon.knowx.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.hackathon.knowx.dtos.PropertyValueDto;
 import pl.hackathon.knowx.model.PropertyValue;
 import pl.hackathon.knowx.service.PropertyValueService;
 
@@ -18,8 +19,8 @@ public class PropertyValueController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<PropertyValue> createTag(@RequestBody PropertyValue propertyValue) {
-        PropertyValue pv = propertyValueService.createPropertyValue(propertyValue.getName(), null);
+    public ResponseEntity<PropertyValue> createTag(@RequestBody PropertyValueDto propertyValueDto) {
+        PropertyValue pv = propertyValueService.createPropertyValue(propertyValueDto);
         return ResponseEntity.ok(pv);
     }
     @GetMapping("/getPropVal/{id}")

@@ -18,14 +18,14 @@ public class PropertiesListController {
         this.propertiesListService = propertiesListService;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<PropertiesList> createPropertiesList(@RequestBody PropertiesListDto p) {
-
-        PropertiesList propertiesList = propertiesListService.createPropertiesList(p.getName(),
-                p.getPropertyValues(),
-                p.getWorkspace());
-        return ResponseEntity.ok(propertiesList);
-    }
+//    @PostMapping("/create")
+//    public ResponseEntity<PropertiesList> createPropertiesList(@RequestBody PropertiesListDto p) {
+//
+//        PropertiesList propertiesList = propertiesListService.createPropertiesList(p.getName(),
+//                p.getPropertyValues(),
+//                p.getWorkspace());
+//        return ResponseEntity.ok(propertiesList);
+//    }
 
     /**
      * return tagService.getTag(id).map(ResponseEntity::ok)
