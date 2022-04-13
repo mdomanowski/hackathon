@@ -18,9 +18,9 @@ public class FlashcardDto {
     private String title;
     private String description;
     private String link;
-    private User author;
+    private UserDto author;
     private Set<PropertyNameValueDto> flashcardProperties;
     private List<FlashcardDto> backlinks;
-    private Set<Tag> tags;
-    private Workspace workspace;
+    private Set<TagDto> tagsDto;
+    private WorkspaceDto workspaceDto;
 }

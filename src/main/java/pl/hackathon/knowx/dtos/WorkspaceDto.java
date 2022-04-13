@@ -20,4 +20,5 @@ public class WorkspaceDto {
     private List<FlashcardDto> flashcardsList = new ArrayList<>();
     private String workspaceOwner;
     private List<UserDto> participants = new ArrayList<>();
+
 }
