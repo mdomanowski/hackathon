@@ -18,7 +18,7 @@ public class WorkspaceDto {
     private String description;
     private Map<String, Set<String>> properties;
     private List<FlashcardDto> flashcardsList = new ArrayList<>();
-    private String workspaceOwner;
+    private UserDto workspaceOwner;
     private List<UserDto> participants = new ArrayList<>();
 
 }
