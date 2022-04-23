@@ -1,46 +1,34 @@
 package pl.hackathon.knowx.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.hackathon.knowx.model.Tag;
-import pl.hackathon.knowx.service.TagService;
+import pl.hackathon.knowx.model.dtos.TagDto;
+import pl.hackathon.knowx.model.entities.Tag;
+import pl.hackathon.knowx.services.TagService;
 
-import java.util.Optional;
+import java.util.List;
 
-/**
- *     public Tag createTag(String name, Flashcard flashcard) {
- *         Tag tag = tagRepository.save(new Tag(name, flashcard));
- *         return tag;
- *     }
- *
- *     public Optional<Tag> getTag(Long id) {
- *         Optional<Tag> newTag = tagRepository.findById(id);
- *         return newTag;
- *     }
- *
- *     public void deleteTag(Long id) {
- *         tagRepository.deleteById(id);
- *     }
- */
+@RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "/tag")
+@RequestMapping("/tag")
 public class TagController {
     private final TagService tagService;
-    @Autowired
-    public TagController(TagService tagService) {
-        this.tagService = tagService;
-    }
 
     @PostMapping("/create")
-    public ResponseEntity<Tag> createTag(@RequestBody Tag tag) {
-        Tag newTag = tagService.createTag(tag.getName(), null);
-        return ResponseEntity.ok(newTag);
+    public ResponseEntity<Tag> createTag(@RequestBody TagDto tagDtoDto) {
+        return ResponseEntity.ok(tagService.createTag(tagDtoDto));
     }
-    @GetMapping("/getTag/{id}")
+
+    @GetMapping("/{id}")
     public ResponseEntity<Tag> getTag(@PathVariable Long id) {
         return tagService.getTag(id).map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Tag>> getAllTag() {
+        return tagService.getAllTags().map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 }
