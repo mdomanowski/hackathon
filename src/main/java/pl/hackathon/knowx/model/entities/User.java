@@ -16,14 +16,14 @@ import java.util.Set;
 public class User extends BaseEntity{
     private String nickname;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private Set<Workspace> ownWorkspaces = new HashSet<>();
-
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private Set<Workspace> observedWorkspace = new HashSet<>();
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private Workspace participatedWorkspace;
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private Set<Workspace> ownWorkspaces = new HashSet<>();
+//
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private Set<Workspace> observedWorkspace = new HashSet<>();
+//
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    private Workspace participatedWorkspace;
 }

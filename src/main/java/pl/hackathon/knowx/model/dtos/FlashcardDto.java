@@ -15,8 +15,8 @@ public class FlashcardDto {
     private String title;
     private String description;
     private String link;
-    private UserDto author;
-//    private String author;
+//    private UserDto author;
+    private String author;
     private Set<PropertyDto> properties = new HashSet<>();
 
 //    TODO

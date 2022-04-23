@@ -13,7 +13,7 @@ import java.util.Set;
 public class UserDto {
     private Long id;
     private String nickname;
-    private Set<WorkspaceDto> ownWorkspaces = new HashSet<>();
-    private Set<WorkspaceDto> observedWorkspace = new HashSet<>();
-    private WorkspaceDto participatedWorkspace;
+//    private Set<WorkspaceDto> ownWorkspaces = new HashSet<>();
+//    private Set<WorkspaceDto> observedWorkspace = new HashSet<>();
+//    private WorkspaceDto participatedWorkspace;
 }

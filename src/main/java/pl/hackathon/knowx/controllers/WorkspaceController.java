@@ -14,10 +14,10 @@ import java.util.List;
 public class WorkspaceController {
     private final WorkspaceService workspaceService;
 
-//    @PostMapping("/create")
-//    public ResponseEntity<Workspace> createWorkspace(@RequestBody WorkspaceDto workspaceDtoDto) {
-//        return ResponseEntity.ok(workspaceService.createWorkspace(workspaceDtoDto));
-//    }
+    @PostMapping("/create")
+    public ResponseEntity<Workspace> createWorkspace(@RequestBody WorkspaceDto workspaceDtoDto) {
+        return ResponseEntity.ok(workspaceService.createWorkspace(workspaceDtoDto));
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Workspace> getWorkspace(@PathVariable Long id) {

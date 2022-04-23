@@ -10,10 +10,10 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {PropertyKeyMapper.class, FlashcardMapper.class, UserMapper.class})
 public interface WorkspaceMapper {
-//    WorkspaceMapper INSTANCE = Mappers.getMapper(WorkspaceMapper.class);
-//
-//    Workspace workspaceDtoToWorkspace(WorkspaceDto workspaceDto);
-//    WorkspaceDto workspaceToWorkspaceDto(Workspace workspace);
-//    List<Workspace> workspaceListDtoToWorkspaceList(List<WorkspaceDto> workspacesDto);
-//    List<WorkspaceDto> workspaceListToWorkspaceListDto(List<Workspace> workspaces);
+    WorkspaceMapper INSTANCE = Mappers.getMapper(WorkspaceMapper.class);
+
+    Workspace workspaceDtoToWorkspace(WorkspaceDto workspaceDto);
+    WorkspaceDto workspaceToWorkspaceDto(Workspace workspace);
+    List<Workspace> workspaceListDtoToWorkspaceList(List<WorkspaceDto> workspacesDto);
+    List<WorkspaceDto> workspaceListToWorkspaceListDto(List<Workspace> workspaces);
 }

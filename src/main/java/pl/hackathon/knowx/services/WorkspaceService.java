@@ -14,9 +14,9 @@ import java.util.Optional;
 public class WorkspaceService {
     private final WorkspaceRepository workspaceRepository;
 
-//    public Workspace createWorkspace(WorkspaceDto workspaceDto) {
-//        return workspaceRepository.save(WorkspaceMapper.INSTANCE.workspaceDtoToWorkspace(workspaceDto));
-//    }
+    public Workspace createWorkspace(WorkspaceDto workspaceDto) {
+        return workspaceRepository.save(WorkspaceMapper.INSTANCE.workspaceDtoToWorkspace(workspaceDto));
+    }
 
     public Optional<Workspace> getWorkspace(Long id) {
         return workspaceRepository.findById(id);

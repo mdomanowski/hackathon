@@ -17,6 +17,7 @@ public class WorkspaceDto {
     private Set<PropertyKey> propertyKeys = new HashSet<>();
     private List<FlashcardDto> flashcards = new ArrayList<>();
     private UserDto workspaceOwner;
+    private Set<UserDto> observedWorkspace = new HashSet<>();
     private List<UserDto> participants = new ArrayList<>();
 //    private List<String> participants = new ArrayList<>();
 }

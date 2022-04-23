@@ -18,9 +18,9 @@ public class Flashcard extends BaseEntity{
     private String description;
     private String link;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private User author;
-//    private String author;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    private User author;
+    private String author;
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "flashcard_id")
