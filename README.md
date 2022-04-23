@@ -1,4 +1,4 @@
 # hackathon
 Flashcard Workspace for Hackathon
 
-Jest to branch zawierajacy developa ukończonego po hackathonie
+Branch ze wszystkimi poprawkami w celu wykonywania podstawowych operacji CRUD
