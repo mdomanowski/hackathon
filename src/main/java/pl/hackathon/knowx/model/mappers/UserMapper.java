@@ -7,7 +7,7 @@ import pl.hackathon.knowx.model.entities.User;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {WorkspaceMapper.class})
+@Mapper(componentModel = "spring")
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 

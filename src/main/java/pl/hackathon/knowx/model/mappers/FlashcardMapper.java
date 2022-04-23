@@ -7,7 +7,7 @@ import pl.hackathon.knowx.model.entities.Flashcard;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {PropertyMapper.class, UserMapper.class})
+@Mapper(componentModel = "spring")
 public interface FlashcardMapper {
     FlashcardMapper INSTANCE = Mappers.getMapper(FlashcardMapper.class);
 

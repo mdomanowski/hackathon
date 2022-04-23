@@ -19,5 +19,4 @@ public class WorkspaceDto {
     private UserDto workspaceOwner;
     private Set<UserDto> observedWorkspace = new HashSet<>();
     private List<UserDto> participants = new ArrayList<>();
-//    private List<String> participants = new ArrayList<>();
 }
