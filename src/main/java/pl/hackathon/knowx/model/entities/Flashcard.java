@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Flashcard extends BaseEntity{
 //    private User author;
     private String author;
 
+//    @JsonProperty("properties")
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "flashcard_id")
     private Set<Property> properties = new HashSet<>();
