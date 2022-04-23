@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.model.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @NoArgsConstructor
@@ -9,8 +10,7 @@ import lombok.*;
 @Setter
 public class PropertyDto {
     private Long id;
-    private String name;
+    private String key;
     private String value;
-    private FlashcardDto flashcard;
 }
 

@@ -1,5 +1,6 @@
 package pl.hackathon.knowx.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Workspace extends BaseEntity{
     @JoinColumn(name = "workspace_id")
     private Set<PropertyKey> propertyKeys = new HashSet<>();
 
+    @JsonProperty("flashcardss")
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "workspace_id")
     private List<Flashcard> flashcards = new ArrayList<>();
@@ -40,8 +42,4 @@ public class Workspace extends BaseEntity{
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "workspace_id")
     private List<User> participants = new ArrayList<>();
-
-//    @Builder.Default
-//    @ElementCollection(fetch = FetchType.LAZY)
-//    private List<String> participants = new ArrayList<>();
 }

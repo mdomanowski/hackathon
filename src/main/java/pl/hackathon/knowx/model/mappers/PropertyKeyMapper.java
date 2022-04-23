@@ -7,7 +7,7 @@ import pl.hackathon.knowx.model.entities.PropertyKey;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {PropertyKeyMapper.class})
+@Mapper(componentModel = "spring")
 public interface PropertyKeyMapper {
     PropertyKeyMapper INSTANCE = Mappers.getMapper(PropertyKeyMapper.class);
 
